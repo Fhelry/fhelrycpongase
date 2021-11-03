@@ -24,6 +24,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
             <p>
             <label for="name">Employee name: </label>
+            &nbsp;
             <input id="name" type="text" oninput="calcPay()">
 
             <label for="days">No. of Worked Days: </label>
@@ -32,10 +33,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             <label for="rate">Daily Rate: </label>
             <input id="rate" type="number" oninput="calcPay()">
 
-            <label for="dedu">Deduction Amount: </label><br>
+            <label for="dedu">Deduction Amount: </label>
             <input id="dedu" type="number" oninput="calcPay()">
-<br>
+            <br><br>
             <label for="pay">Payroll: </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input id="pay" type="number" readonly></input>
 
             <button onclick="addEmp()">Add Employee to List</button>
@@ -46,6 +49,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             <input id="num" type="number" readonly>
             <button onclick="clearList()"> Clear List </button> 
 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label for="remove">Remove Employee No.: </label>
             <input id="remove" type="number">
             <button onclick="remEmp()">Remove</button>  
