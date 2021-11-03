@@ -20,38 +20,32 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Back to Home</a>
     <a href="Nth_Factorial_Sum_andAverage.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nth Factorial, Sum and Average</a>
   </div>
-            <h3>Input the following:<br> </h3>
-<h4> Employee Name, Days Worked, Daily Rate, Deduction Amount</h4>
+           <h3>Enter name, number of worked days, daily rate, and deduction amount to calculate net pay</h3>
 
             <p>
             <label for="name">Employee name: </label>
-&nbsp;
-            <input id="name" type="text" oninput="calcPay()"> 
-&nbsp;
-            <label for="days">Days Worked: </label>
+            <input id="name" type="text" oninput="calcPay()">
 
+            <label for="days">No. of Worked Days: </label>
             <input id="days" type="number" oninput="calcPay()">
-&nbsp;
-            <label for="rate">Daily Rate: </label>
 
+            <label for="rate">Daily Rate: </label>
             <input id="rate" type="number" oninput="calcPay()">
-&nbsp;
-            <label for="dedu">Deduction Amount: </label> 
-            <input id="dedu" type="number" oninput="calcPay()"><br><br>
+
+            <label for="dedu">Deduction Amount: </label>
+            <input id="dedu" type="number" oninput="calcPay()">
 
             <label for="pay">Payroll: </label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input id="pay" type="number" readonly></input>
-&nbsp;&nbsp;
-            <button onclick="addEmp()">Add Employee to List</button><br>
+
+            <button onclick="addEmp()">Add Employee to List</button>
             </p>
 
             <p>
             <label for="num"> No of Employees: </label>
-            <input id="num" type="number" readonly>&nbsp;
+            <input id="num" type="number" readonly>
             <button onclick="clearList()"> Clear List </button> 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
             <label for="remove">Remove Employee No.: </label>
             <input id="remove" type="number">
             <button onclick="remEmp()">Remove</button>  
@@ -139,7 +133,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                 function showEmp(){
                     var count, empLength, empNo, itemText, grossAmount, totalPay;
                     var theader,tbody,tb,tfooter;
- 
+                    
                     theader ="<thead>";
                     theader+="<tr>";
                     theader+="<th>No.</th>";
@@ -153,7 +147,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                     theader+="</thead>";
                     
                     empLength = list.length;
-</p>
+
                     for (count = 0, itemText = "", tbody = ''; count < empLength; count++){
                         empNo = count + 1;
 
