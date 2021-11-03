@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Back to Home</a>
+    <a href="Income_Tax_Calculator.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Income Tax Calculator</a>
+  </div>
+<h1>Income Tax Calculator</h1>
+<br>
+<p>
+<label for="n1"><h3>Taxable Income</h3s></label> 
+<br><br>
+<input id="n1" name="n1" type="number" onkeyup="computeincometax()">
+ <br> <br/>
+<h3>Income Tax</h3>
+<h2><input type="text" id="output" readonly></h2>
+  <button class="btn" id="comp" onclick="fn1()">Compute</button>
+        </div>
+      </div>
+  </body>
+
+
+
+</p>
+
+<script>
+function fn1(){
+    var n = document.getElementById("n1").value;
+    var pesos = '\u20B1'
+    if(n < 250000){
+       document.getElementById("output").value = 0
+    }else if(n >= 250000 && n < 400000){
+      var tax1 = (n- 250000) * 0.2; 
+         document.getElementById("output").value = pesos + tax1;
+    }else if(n >= 400000 && n < 800000){
+      var tax2 = ((n- 400000)* 0.25)+ 30000; 
+       document.getElementById("output").value =  pesos + tax2;
+    }else if(n >= 800000 && n < 2000000){
+      var tax3 = ((n - 800000)*0.30)+ 130000;
+         document.getElementById("output").value =  pesos + tax3;
+    }else if(n >= 2000000 && n < 8000000){
+      var tax4 = ((n - 2000000)*0.32)+ 490000;
+         document.getElementById("output").value =  pesos + tax4;
+    }else if(n >= 8000000){
+        var tax5 = ((n - 8000000)*0.35)+ 2410000;
+         document.getElementById("output").value =  pesos + tax5;
+    }else{
+      document.getElementById("output").value = "Invalid";
+    }
+}
+</script>
+<br><br/>
+</body>
+</html>

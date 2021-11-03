@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Back to Home</a>
+    <a href="Nth_Factorial_Sum_andAverage.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nth Factorial, Sum and Average</a>
+  </div>
+    <head>
+        <title>Nth Factorial, Sum and Average</title>
+        <h1>Nth Factorial, Sum and Average<h1/>   <br>
+    
+      <h2>Enter Number</h2>
+      <input type="text" id="numb" placeholder="Enter number"><br> <br>
+      <h2>Factorial</h2><input type="text" id="output1" readonly><br>
+      <h2>Sum</h2><input type="text" id="output2" readonly><br>
+      <h2>Average</h2><input type="text" id="output3" readonly><br>
+      </br></br>
+      <button class="btn" id="comp" onclick="fn1()">Compute</button>
+        </div>
+      </div>
+  </body>
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+function fn1(){
+    var n = document.getElementById("numb").value * 1; 
+    
+    //While Loop
+    var ftrl = 1, k = 1;
+    while(k <= n){
+      ftrl = ftrl*k;
+      k++
+    }
+    document.getElementById("output1").value = ftrl;
+
+    //Do-while
+    var sum = 0, j = 1;
+    do{
+      sum = j+sum
+      j++;
+    }while(j <= n)
+    document.getElementById("output2").value = sum;
+
+    //For loop
+    var loopme = 0;
+    for (let i = 1; i <= n; i++){  
+        loopme = i+loopme
+    }
+    var aveg = loopme / n; 
+    document.getElementById("output3").value = Math.round(aveg*100)/100;
+}
+</script>
+</body>
+</html>
