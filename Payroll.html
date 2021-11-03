@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Back to Home</a>
+    <a href="Nth_Factorial_Sum_andAverage.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nth Factorial, Sum and Average</a>
+  </div>
+            <h3>Input the following:<br> </h3>
+<h4> Employee Name, Days Worked, Daily Rate, Deduction Amount</h4>
+
+            <p>
+            <label for="name">Employee name: </label>
+&nbsp;
+            <input id="name" type="text" oninput="calcPay()"> 
+&nbsp;
+            <label for="days">Days Worked: </label>
+
+            <input id="days" type="number" oninput="calcPay()">
+&nbsp;
+            <label for="rate">Daily Rate: </label>
+
+            <input id="rate" type="number" oninput="calcPay()">
+&nbsp;
+            <label for="dedu">Deduction Amount: </label> 
+            <input id="dedu" type="number" oninput="calcPay()"><br><br>
+
+            <label for="pay">Payroll: </label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="pay" type="number" readonly></input>
+&nbsp;&nbsp;
+            <button onclick="forEmp()">Add Employee to List</button><br>
+            </p>
+
+            <p>
+            <label for="num"> No of Employees: </label>
+            <input id="num" type="number" readonly>&nbsp;
+            <button onclick="clearList()"> Clear List </button> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="remove">Remove Employee No.: </label>
+            <input id="remove" type="number">
+            <button onclick="remEmp()">Remove</button>  
+            </p>
+
+            <p id="list"></p>
+            <script>
+                function startList(){
+                    list = [];
+                    document.getElementById("num").value=list.length;
+                    document.getElementById("list").innerHTML="";
+                }
+
+                function forEmp(){
+
+                    var empDet = {
+                        "name": "1",
+                        "days": 1,
+                        "rate": 0,
+                        "dedu": 0,
+                        "deduAmount" : function deduAmount(){
+                            return Math.round(this.rate*this.days*100/100);  
+                        },
+                        "payAmount" : function payAmount(){
+                            return Math.round(this.deduAmount()-this.dedu*100/100);  
+                        }
+                    };
+
+                    empDet.name=document.getElementById("name").value;
+                    empDet.days=document.getElementById("days").value;
+                    empDet.rate=document.getElementById("rate").value;
+                    empDet.dedu=document.getElementById("dedu").value;
+
+                    console.log(empDet.name);
+                    console.log(empDet.days);
+                    console.log(empDet.rate);
+                    console.log(empDet.dedu);
+
+                    list.push(empDet);
+
+                    console.log(list.length);
+                    document.getElementById("num").value=list.length;
+
+                    showEmp();
+                }
+
+                function calcPay(){
+                    var calcDays, calcRate, calcDedu, calcGross, calcPay;
+                    calcDays = document.getElementById("days").value*1;
+                    calcRate = document.getElementById("rate").value*1;
+                    calcDedu = document.getElementById("dedu").value*1;
+
+                    calcGross = Math.round(calcDays*calcRate*100/100);
+                    calcPay = Math.round(calcGross-calcDedu*100/100);
+
+                    console.log(calcGross);
+                    console.log(calcPay);
+
+                    document.getElementById("pay").value = calcPay;
+                }
+
+                function remEmp(){
+                    var del, empNo;
+
+                    empNo = document.getElementById("remove").value;
+                    del = confirm("Do you want to remove Employee No. "+empNo+"?")
+
+                    if (del){
+                        list.splice(empNo-1, 1);
+                        document.getElementById("num").value=list.length;
+                        showEmp();
+                    }
+                }
+
+                function clearList(){
+                    var clear = confirm("Do you want to clear the table?");
+
+                    if (clear){
+                        startList();
+                    }
+                }
+
+
+
+                function showEmp(){
+                    var count, empLength, empNo, itemText, grossAmount, totalPay;
+                    var theader,tbody,tb,tfooter;
+ 
+                    theader ="<thead>";
+                    theader+="<tr>";
+                    theader+="<th>No.</th>";
+                    theader+='<th style="text-align:left">Employee Name</th>';
+                    theader+="<th>Days Worked</th>";
+                    theader+='<th style="text-align:right">Daily Rate</th>';
+                    theader+='<th style="text-align:right">Gross Pay</th>';
+                    theader+='<th style="text-align:right">Deduction Amount</th>';
+                    theader+="<th>Net Pay</th>";
+                    theader+="</tr>";
+                    theader+="</thead>";
+                    
+                    empLength = list.length;
+</p>
+                    for (count = 0, itemText = "", tbody = ''; count < empLength; count++){
+                        empNo = count + 1;
+
+                        tbody += "<tr>"
+                            +'<td>'+empNo+'</td>'
+                            +'<td>'+list[count].name+' </td>'
+                            +'<td style = "text-align:right">'+list[count].days+'</td>'
+                            +'<td style = "text-align:right">'+list[count].rate+'</td>'
+                            +'<td style = "text-align:right">'+list[count].deduAmount()+'</td>'
+                            +'<td style = "text-align:right">'+list[count].dedu+'</td>'
+                            +'<td style = "text-align:right">'+list[count].payAmount()+'</td>'
+                            +"</tr>";
+                    }
+
+
+                    console.log(theader+tbody+tfooter);
+                    document.getElementById("list").innerHTML=
+                    "<table>"+theader+tbody+"</table>";
+
+
+                }
+
+                var list = []; 
+
+
+            </script>
+
+
+        </body>
+    </head>
